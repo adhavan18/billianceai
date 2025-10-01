@@ -49,18 +49,16 @@ const Index = () => {
         </div>
 
         {/* Hero Visual */}
-        <div className="max-w-6xl mx-auto mt-20">
+        <div className="max-w-2xl mx-auto mt-12">
           <div className="relative">
-            <div className="absolute inset-0 rounded-3xl" style={{ background: 'var(--gradient-hero)', boxShadow: 'var(--shadow-glow)' }} />
-            <div className="relative aspect-[16/9] rounded-3xl border border-border/50 backdrop-blur-xl bg-card/40 overflow-hidden">
+            <div className="absolute inset-0 rounded-2xl" style={{ background: 'var(--gradient-hero)', boxShadow: 'var(--shadow-glow)' }} />
+            <div className="relative aspect-[4/3] rounded-2xl border border-border/30 backdrop-blur-xl bg-card/30 overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-full h-full" style={{ background: 'var(--gradient-silver)' }}>
-                  <div className="grid grid-cols-3 gap-4 p-8 opacity-40">
-                    {Array.from({ length: 9 }).map((_, i) => (
-                      <div key={i} className="aspect-square rounded-xl bg-background/60 backdrop-blur-sm" />
-                    ))}
-                  </div>
-                </div>
+                <img 
+                  src="/WhatsApp Image 2025-10-01 at 09.00.15_1bec2f54.jpg" 
+                  alt="Presentation showing Real Time Tracking system"
+                  className="w-full h-full object-cover rounded-2xl"
+                />
               </div>
             </div>
           </div>
