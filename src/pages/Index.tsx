@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, Play } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Index = () => {
   return (
@@ -9,10 +10,8 @@ const Index = () => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: 'var(--gradient-metallic)' }}>
-                <Sparkles className="w-4 h-4 text-primary" />
-              </div>
-              <span className="text-xl font-semibold">Billiance</span>
+              <img src={logo} alt="billianceai logo" className="w-8 h-8" />
+              <span className="text-xl font-semibold">billianceai</span>
             </div>
             <div className="hidden md:flex items-center gap-6">
               <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Product</a>
@@ -29,21 +28,21 @@ const Index = () => {
       {/* Hero Section */}
       <section className="container mx-auto px-6 pt-32 pb-20 md:pt-40 md:pb-32">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted/50 backdrop-blur-sm border border-border/50 mb-8">
-            <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-            <span className="text-xs font-medium text-muted-foreground">Introducing Billiance AI</span>
-          </div>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted/50 backdrop-blur-sm border border-border/50 mb-8">
+              <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+              <span className="text-xs font-medium text-muted-foreground">Introducing billianceai</span>
+            </div>
           
           <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-[0.95] tracking-tight">
-            Design meets
+            Where ideology
             <br />
             <span className="bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">
-              intelligence
+              meets internet
             </span>
           </h1>
           
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-            The AI-powered platform that transforms how teams create, collaborate, and innovate. Built for the future of work.
+            We help people on the internet
           </p>
           
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
@@ -145,7 +144,7 @@ const Index = () => {
               Start building today
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-              Join thousands of teams already using Billiance to create the future
+              Join thousands of teams already using billianceai to create the future
             </p>
             <Button size="lg" className="text-base px-10 h-12 rounded-full font-medium" style={{ background: 'var(--gradient-metallic)', boxShadow: 'var(--shadow-silver)' }}>
               Get started free
@@ -160,10 +159,8 @@ const Index = () => {
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-lg flex items-center justify-center" style={{ background: 'var(--gradient-metallic)' }}>
-                <Sparkles className="w-3 h-3 text-primary" />
-              </div>
-              <span className="font-semibold">Billiance</span>
+              <img src={logo} alt="billianceai logo" className="w-6 h-6" />
+              <span className="font-semibold">billianceai</span>
             </div>
             <div className="flex gap-6 text-sm text-muted-foreground">
               <a href="#" className="hover:text-foreground transition-colors">Privacy</a>
