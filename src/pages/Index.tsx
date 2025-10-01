@@ -1,145 +1,178 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, Zap, Shield, TrendingUp } from "lucide-react";
+import { ArrowRight, Sparkles, Play } from "lucide-react";
 
 const Index = () => {
   return (
-    <div className="min-h-screen" style={{ background: 'var(--gradient-hero)' }}>
+    <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="container mx-auto px-6 py-6">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'var(--gradient-metallic)', boxShadow: 'var(--shadow-silver)' }}>
-              <Sparkles className="w-5 h-5 text-primary" />
+      <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-background/80 border-b border-border/40">
+        <div className="container mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: 'var(--gradient-metallic)' }}>
+                <Sparkles className="w-4 h-4 text-primary" />
+              </div>
+              <span className="text-xl font-semibold">Billiance</span>
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-              BillianceAI
-            </span>
-          </div>
-          <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-foreground/80 hover:text-foreground transition-colors">Features</a>
-            <a href="#about" className="text-foreground/80 hover:text-foreground transition-colors">About</a>
-            <a href="#pricing" className="text-foreground/80 hover:text-foreground transition-colors">Pricing</a>
-            <Button size="sm" className="rounded-full" style={{ background: 'var(--gradient-chrome)', boxShadow: 'var(--shadow-silver)' }}>
-              Get Started
-            </Button>
+            <div className="hidden md:flex items-center gap-6">
+              <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Product</a>
+              <a href="#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
+              <a href="#about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Company</a>
+              <Button size="sm" className="rounded-full h-9 px-6" style={{ background: 'var(--gradient-chrome)' }}>
+                Sign in
+              </Button>
+            </div>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-6 py-20 md:py-32">
-        <div className="max-w-5xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/40 backdrop-blur-sm border border-border/50 mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            <span className="text-sm font-medium">Powered by Advanced AI</span>
+      <section className="container mx-auto px-6 pt-32 pb-20 md:pt-40 md:pb-32">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted/50 backdrop-blur-sm border border-border/50 mb-8">
+            <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+            <span className="text-xs font-medium text-muted-foreground">Introducing Billiance AI</span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-in fade-in slide-in-from-bottom-6 duration-700 delay-100">
-            <span className="bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">
-              Brilliance Meets
-            </span>
+          <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-[0.95] tracking-tight">
+            Design meets
             <br />
-            <span className="bg-gradient-to-r from-accent via-primary to-foreground bg-clip-text text-transparent">
-              Artificial Intelligence
+            <span className="bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">
+              intelligence
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200">
-            Transform your business with cutting-edge AI solutions. Unlock unprecedented growth, efficiency, and innovation.
+          <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
+            The AI-powered platform that transforms how teams create, collaborate, and innovate. Built for the future of work.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-in fade-in slide-in-from-bottom-10 duration-700 delay-300">
-            <Button size="lg" className="text-lg px-8 rounded-full group" style={{ background: 'var(--gradient-metallic)', boxShadow: 'var(--shadow-glow)' }}>
-              Start Free Trial
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+            <Button size="lg" className="text-base px-8 h-12 rounded-full font-medium" style={{ background: 'var(--gradient-metallic)', boxShadow: 'var(--shadow-silver)' }}>
+              Get started free
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 rounded-full border-2 backdrop-blur-sm bg-background/20">
-              Watch Demo
+            <Button size="lg" variant="ghost" className="text-base px-8 h-12 rounded-full font-medium gap-2">
+              <Play className="w-4 h-4" />
+              Watch demo
             </Button>
           </div>
         </div>
 
-        {/* Floating Cards */}
-        <div className="max-w-6xl mx-auto mt-24 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            { icon: Zap, title: "Lightning Fast", desc: "Process data at unprecedented speeds" },
-            { icon: Shield, title: "Enterprise Security", desc: "Bank-level encryption & compliance" },
-            { icon: TrendingUp, title: "Scale Infinitely", desc: "Grow without limits or constraints" }
-          ].map((feature, idx) => (
-            <div
-              key={idx}
-              className="p-8 rounded-2xl backdrop-blur-lg bg-card/40 border border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:-translate-y-2 animate-in fade-in slide-in-from-bottom duration-700"
-              style={{ 
-                animationDelay: `${400 + idx * 100}ms`,
-                boxShadow: 'var(--shadow-silver)'
-              }}
-            >
-              <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4" style={{ background: 'var(--gradient-chrome)' }}>
-                <feature.icon className="w-7 h-7 text-primary" />
+        {/* Hero Visual */}
+        <div className="max-w-6xl mx-auto mt-20">
+          <div className="relative">
+            <div className="absolute inset-0 rounded-3xl" style={{ background: 'var(--gradient-hero)', boxShadow: 'var(--shadow-glow)' }} />
+            <div className="relative aspect-[16/9] rounded-3xl border border-border/50 backdrop-blur-xl bg-card/40 overflow-hidden">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-full h-full" style={{ background: 'var(--gradient-silver)' }}>
+                  <div className="grid grid-cols-3 gap-4 p-8 opacity-40">
+                    {Array.from({ length: 9 }).map((_, i) => (
+                      <div key={i} className="aspect-square rounded-xl bg-background/60 backdrop-blur-sm" />
+                    ))}
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-              <p className="text-muted-foreground">{feature.desc}</p>
             </div>
-          ))}
+          </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-24 bg-background/60 backdrop-blur-xl">
+      <section id="features" className="py-32 bg-muted/30">
         <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Built for the Future
-              </span>
+          <div className="max-w-2xl mx-auto text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+              Everything you need
             </h2>
-            <p className="text-xl text-muted-foreground">
-              Everything you need to dominate your market with AI-powered solutions
+            <p className="text-lg text-muted-foreground">
+              Powerful features that scale with your team
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
-              { title: "AI-Powered Analytics", desc: "Real-time insights that drive decisions", stats: "99.9% Accuracy" },
-              { title: "Seamless Integration", desc: "Connect with your existing tools instantly", stats: "200+ Integrations" },
-              { title: "24/7 Support", desc: "Expert assistance whenever you need it", stats: "<2min Response" },
-              { title: "Custom Solutions", desc: "Tailored AI models for your specific needs", stats: "100% Custom" }
+              { 
+                title: "AI-First", 
+                desc: "Built from the ground up with intelligence at its core"
+              },
+              { 
+                title: "Real-time Collaboration", 
+                desc: "Work together seamlessly across teams and time zones"
+              },
+              { 
+                title: "Enterprise Ready", 
+                desc: "Security and scale for organizations of any size"
+              }
             ].map((item, idx) => (
-              <div
-                key={idx}
-                className="p-8 rounded-2xl backdrop-blur-lg bg-card border border-border hover:border-primary/50 transition-all duration-300 group"
-                style={{ boxShadow: 'var(--shadow-silver)' }}
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">{item.title}</h3>
-                  <span className="px-3 py-1 rounded-full text-xs font-bold" style={{ background: 'var(--gradient-chrome)' }}>
-                    {item.stats}
-                  </span>
+              <div key={idx} className="group">
+                <div className="p-8 rounded-2xl bg-card border border-border/50 hover:border-border transition-all duration-300 h-full">
+                  <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
                 </div>
-                <p className="text-muted-foreground text-lg">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Stats Section */}
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center p-12 md:p-16 rounded-3xl backdrop-blur-xl bg-gradient-to-br from-card/60 to-card/40 border border-border/50" style={{ boxShadow: 'var(--shadow-glow)' }}>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Ready to Transform Your Business?
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {[
+                { value: "10M+", label: "Users" },
+                { value: "99.9%", label: "Uptime" },
+                { value: "150+", label: "Countries" },
+                { value: "24/7", label: "Support" }
+              ].map((stat, idx) => (
+                <div key={idx} className="text-center">
+                  <div className="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-32">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
+              Start building today
             </h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              Join thousands of companies already using BillianceAI
+            <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
+              Join thousands of teams already using Billiance to create the future
             </p>
-            <Button size="lg" className="text-lg px-12 rounded-full" style={{ background: 'var(--gradient-metallic)', boxShadow: 'var(--shadow-silver)' }}>
-              Get Started Now
-              <ArrowRight className="ml-2 w-5 h-5" />
+            <Button size="lg" className="text-base px-10 h-12 rounded-full font-medium" style={{ background: 'var(--gradient-metallic)', boxShadow: 'var(--shadow-silver)' }}>
+              Get started free
+              <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border/40 py-12">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded-lg flex items-center justify-center" style={{ background: 'var(--gradient-metallic)' }}>
+                <Sparkles className="w-3 h-3 text-primary" />
+              </div>
+              <span className="font-semibold">Billiance</span>
+            </div>
+            <div className="flex gap-6 text-sm text-muted-foreground">
+              <a href="#" className="hover:text-foreground transition-colors">Privacy</a>
+              <a href="#" className="hover:text-foreground transition-colors">Terms</a>
+              <a href="#" className="hover:text-foreground transition-colors">Contact</a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
