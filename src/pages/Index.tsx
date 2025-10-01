@@ -33,25 +33,17 @@ const Index = () => {
               <span className="text-xs font-medium text-muted-foreground">Introducing billianceai</span>
             </div>
           
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-[0.95] tracking-tight">
-            Where ideology
-            <br />
-            <span className="bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">
-              meets internet
-            </span>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-[0.95] tracking-tight text-center">
+            <span className="bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">ideology meets internet</span>
           </h1>
           
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-            We help people on the internet
+            we "just" help people
           </p>
           
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
             <Button size="lg" className="text-base px-8 h-12 rounded-full font-medium" style={{ background: 'var(--gradient-metallic)', boxShadow: 'var(--shadow-silver)' }}>
-              Get started free
-            </Button>
-            <Button size="lg" variant="ghost" className="text-base px-8 h-12 rounded-full font-medium gap-2">
-              <Play className="w-4 h-4" />
-              Watch demo
+              get slot
             </Button>
           </div>
         </div>
@@ -119,9 +111,9 @@ const Index = () => {
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
-                { value: "10M+", label: "Users" },
+                { value: "2.5K", label: "Users" },
                 { value: "99.9%", label: "Uptime" },
-                { value: "150+", label: "Countries" },
+                { value: "3", label: "Countries" },
                 { value: "24/7", label: "Support" }
               ].map((stat, idx) => (
                 <div key={idx} className="text-center">
@@ -141,13 +133,13 @@ const Index = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
-              Start building today
+              start building today
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-              Join thousands of teams already using billianceai to create the future
+              Join thousands of teams already using billianceai to create stuff on the internet
             </p>
             <Button size="lg" className="text-base px-10 h-12 rounded-full font-medium" style={{ background: 'var(--gradient-metallic)', boxShadow: 'var(--shadow-silver)' }}>
-              Get started free
+              get slot
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </div>
