@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { useState, useEffect } from "react";
 
@@ -7,6 +7,9 @@ const Index = () => {
   const [isAnnually, setIsAnnually] = useState(false);
   const [proPrice, setProPrice] = useState(15);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [cursorVisible, setCursorVisible] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     if (isAnimating) {
@@ -43,8 +46,55 @@ const Index = () => {
     }, 50);
   };
 
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    const handleMouseEnter = () => setCursorVisible(true);
+    const handleMouseLeave = () => setCursorVisible(false);
+
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseenter', handleMouseEnter);
+    document.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseenter', handleMouseEnter);
+      document.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
+      {/* Custom Cursor Follower */}
+      <div
+        className={`fixed pointer-events-none z-50 transition-opacity duration-300 ${
+          cursorVisible ? 'opacity-100' : 'opacity-0'
+        }`}
+        style={{
+          left: mousePosition.x - 10,
+          top: mousePosition.y - 10,
+          transform: 'translate(-50%, -50%)',
+        }}
+      >
+        <div className="w-5 h-5 bg-gradient-to-r from-primary to-accent rounded-full animate-pulse shadow-lg"></div>
+      </div>
+      
+      {/* Secondary Cursor Ring */}
+      <div
+        className={`fixed pointer-events-none z-40 transition-all duration-500 ease-out ${
+          cursorVisible ? 'opacity-30 scale-100' : 'opacity-0 scale-50'
+        }`}
+        style={{
+          left: mousePosition.x - 20,
+          top: mousePosition.y - 20,
+          transform: 'translate(-50%, -50%)',
+        }}
+      >
+        <div className="w-10 h-10 border-2 border-primary rounded-full"></div>
+      </div>
+
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-background/80 border-b border-border/40">
         <div className="container mx-auto px-6 py-4">
@@ -53,12 +103,51 @@ const Index = () => {
               <img src={logo} alt="billianceai logo" className="w-8 h-8" />
               <span className="text-xl font-semibold">billianceai</span>
             </div>
+            
+            {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-6">
-              <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Product</a>
+              <a href="/team" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Team</a>
               <a href="#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
               <a href="#about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Company</a>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden text-foreground"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
+
+          {/* Mobile Menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden mt-4 pb-4 border-t border-border/40">
+              <div className="flex flex-col gap-4 pt-4">
+                <a 
+                  href="/team" 
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Team
+                </a>
+                <a 
+                  href="#pricing" 
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Pricing
+                </a>
+                <a 
+                  href="#about" 
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Company
+                </a>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
@@ -148,7 +237,7 @@ const Index = () => {
               {[
                 { value: "2.5K", label: "Users" },
                 { value: "99.9%", label: "Uptime" },
-                { value: "3", label: "Countries" },
+                { value: "3", label: "Cities" },
                 { value: "24/7", label: "Support" }
               ].map((stat, idx) => (
                 <div key={idx} className="text-center">
