@@ -1,8 +1,48 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import logo from "@/assets/logo.png";
+import { useState, useEffect } from "react";
 
 const Index = () => {
+  const [isAnnually, setIsAnnually] = useState(false);
+  const [proPrice, setProPrice] = useState(15);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    if (isAnimating) {
+      const targetPrice = isAnnually ? 150 : 15;
+      const startPrice = isAnnually ? 15 : 150;
+      const duration = 600; // 0.6 second animation (faster)
+      const steps = 30; // More steps for smoother transition
+      const stepDuration = duration / steps;
+      const priceIncrement = (targetPrice - startPrice) / steps;
+      
+      let currentStep = 0;
+      const interval = setInterval(() => {
+        currentStep++;
+        // Use easing function for smoother animation
+        const progress = currentStep / steps;
+        const easedProgress = 1 - Math.pow(1 - progress, 3); // Ease-out cubic
+        const newPrice = Math.round(startPrice + (priceIncrement * steps * easedProgress));
+        setProPrice(newPrice);
+        
+        if (currentStep >= steps) {
+          clearInterval(interval);
+          setIsAnimating(false);
+        }
+      }, stepDuration);
+      
+      return () => clearInterval(interval);
+    }
+  }, [isAnnually, isAnimating]);
+
+  const handleToggle = () => {
+    setIsAnimating(true);
+    setTimeout(() => {
+      setIsAnnually(!isAnnually);
+    }, 50);
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
@@ -17,9 +57,6 @@ const Index = () => {
               <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Product</a>
               <a href="#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
               <a href="#about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Company</a>
-              <Button size="sm" className="rounded-full h-9 px-6" style={{ background: 'var(--gradient-chrome)' }}>
-                Sign in
-              </Button>
             </div>
           </div>
         </div>
@@ -121,6 +158,198 @@ const Index = () => {
                   <div className="text-sm text-muted-foreground">{stat.label}</div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section id="pricing" className="py-32 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+              Simple, transparent pricing
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8">
+              Choose the plan that's right for you
+            </p>
+            
+            {/* Pricing Toggle */}
+            <div className="flex items-center justify-center gap-4 mb-12">
+              <span className={`text-sm font-medium ${!isAnnually ? 'text-foreground' : 'text-muted-foreground'}`}>
+                Monthly
+              </span>
+              <button
+                onClick={handleToggle}
+                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
+                  isAnnually ? 'bg-gradient-to-r from-gray-800 to-gray-900' : 'bg-muted'
+                }`}
+                style={isAnnually ? { boxShadow: 'inset 0 2px 4px rgba(0, 0, 0, 0.3)' } : {}}
+              >
+                <span
+                  className={`inline-block h-4 w-4 transform rounded-full transition-all duration-300 ${
+                    isAnnually 
+                      ? 'translate-x-6 bg-gradient-to-br from-gray-200 to-gray-400 shadow-lg' 
+                      : 'translate-x-1 bg-background'
+                  }`}
+                  style={isAnnually ? { 
+                    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.3)',
+                    border: '1px solid rgba(255, 255, 255, 0.2)'
+                  } : {}}
+                />
+              </button>
+              <span className={`text-sm font-medium ${isAnnually ? 'text-foreground' : 'text-muted-foreground'}`}>
+                Annually
+              </span>
+            </div>
+          </div>
+
+          {/* Pricing Cards */}
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Starter Plan */}
+            <div className="p-8 rounded-2xl bg-card border border-border/50 hover:border-border transition-all duration-300">
+              <h3 className="text-2xl font-bold mb-2">Starter</h3>
+              <div className="mb-4">
+                <span className="text-4xl font-bold">Free</span>
+              </div>
+              <p className="text-muted-foreground mb-6">All essential features</p>
+              <Button className="w-full mb-8" style={{ background: 'var(--gradient-metallic)', boxShadow: 'var(--shadow-silver)' }}>
+                Get for Windows
+              </Button>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-primary flex items-center justify-center">
+                    <div className="w-2 h-2 rounded-full bg-background"></div>
+                  </div>
+                  <span className="text-sm">Limited AI responses</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-primary flex items-center justify-center">
+                    <div className="w-2 h-2 rounded-full bg-background"></div>
+                  </div>
+                  <span className="text-sm">Unlimited real-time meeting notetaking</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-primary flex items-center justify-center">
+                    <div className="w-2 h-2 rounded-full bg-background"></div>
+                  </div>
+                  <span className="text-sm">Customize instructions & upload files</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-primary flex items-center justify-center">
+                    <div className="w-2 h-2 rounded-full bg-background"></div>
+                  </div>
+                  <span className="text-sm">Ask AI about all your past meetings</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Pro Plan */}
+            <div className="p-8 rounded-2xl bg-card border-2 border-primary hover:border-primary/80 transition-all duration-300 relative">
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
+                  Most Popular
+                </span>
+              </div>
+              <h3 className="text-2xl font-bold mb-2">Pro</h3>
+              <div className="mb-4">
+                <div className="flex items-baseline gap-1">
+                  <span className="text-4xl font-bold">$</span>
+                  <span 
+                    className={`text-4xl font-bold transition-all duration-200 ${
+                      isAnimating ? 'animate-pulse' : ''
+                    }`}
+                    style={{
+                      transform: isAnimating ? 'scale(1.05)' : 'scale(1)',
+                      transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
+                      color: isAnimating ? 'var(--primary)' : 'inherit'
+                    }}
+                  >
+                    {proPrice}
+                  </span>
+                  <span className="text-muted-foreground">/{isAnnually ? 'year' : 'month'}</span>
+                </div>
+              </div>
+              <p className="text-muted-foreground mb-6">Unlimited access</p>
+              <Button className="w-full mb-8" style={{ background: 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%)', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)' }}>
+                Subscribe
+              </Button>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-primary flex items-center justify-center">
+                    <div className="w-2 h-2 rounded-full bg-background"></div>
+                  </div>
+                  <span className="text-sm">Everything in Starter, plus...</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-primary flex items-center justify-center">
+                    <div className="w-2 h-2 rounded-full bg-background"></div>
+                  </div>
+                  <span className="text-sm">Unlimited AI responses</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-primary flex items-center justify-center">
+                    <div className="w-2 h-2 rounded-full bg-background"></div>
+                  </div>
+                  <span className="text-sm">Unlimited access to latest AI models</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-primary flex items-center justify-center">
+                    <div className="w-2 h-2 rounded-full bg-background"></div>
+                  </div>
+                  <span className="text-sm">Priority support</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Enterprise Plan */}
+            <div className="p-8 rounded-2xl bg-card border border-border/50 hover:border-border transition-all duration-300">
+              <h3 className="text-2xl font-bold mb-2">Enterprise</h3>
+              <div className="mb-4">
+                <span className="text-4xl font-bold">Custom</span>
+              </div>
+              <p className="text-muted-foreground mb-6">Custom knowledge for teams</p>
+              <Button className="w-full mb-8" style={{ background: 'var(--gradient-metallic)', boxShadow: 'var(--shadow-silver)' }}>
+                Talk to sales
+              </Button>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-primary flex items-center justify-center">
+                    <div className="w-2 h-2 rounded-full bg-background"></div>
+                  </div>
+                  <span className="text-sm">Everything in Pro, plus...</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-primary flex items-center justify-center">
+                    <div className="w-2 h-2 rounded-full bg-background"></div>
+                  </div>
+                  <span className="text-sm">Post-call coaching and analytics</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-primary flex items-center justify-center">
+                    <div className="w-2 h-2 rounded-full bg-background"></div>
+                  </div>
+                  <span className="text-sm">RAG knowledge base</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-primary flex items-center justify-center">
+                    <div className="w-2 h-2 rounded-full bg-background"></div>
+                  </div>
+                  <span className="text-sm">User provisioning & role-based access</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-primary flex items-center justify-center">
+                    <div className="w-2 h-2 rounded-full bg-background"></div>
+                  </div>
+                  <span className="text-sm">Single sign-on & IDP integration</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-primary flex items-center justify-center">
+                    <div className="w-2 h-2 rounded-full bg-background"></div>
+                  </div>
+                  <span className="text-sm">Enterprise security & no data training</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

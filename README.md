@@ -1,22 +1,18 @@
-# Welcome to your Lovable project
+# billianceai
+
+This is a React + TypeScript + Vite project for billianceai - where ideology meets internet.
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/ada23e5b-8d3e-4b70-bbfe-46f9ccdeea53
+**URL**: https://github.com/adhavan18/billianceai
 
 ## How can I edit this code?
 
 There are several ways of editing your application.
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/ada23e5b-8d3e-4b70-bbfe-46f9ccdeea53) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
 **Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+If you want to work locally using your own IDE, you can clone this repo and push changes.
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
@@ -24,10 +20,10 @@ Follow these steps:
 
 ```sh
 # Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+git clone https://github.com/adhavan18/billianceai.git
 
 # Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+cd billianceai
 
 # Step 3: Install the necessary dependencies.
 npm i
@@ -62,12 +58,17 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/ada23e5b-8d3e-4b70-bbfe-46f9ccdeea53) and click on Share -> Publish.
+You can deploy this project using various platforms:
 
-## Can I connect a custom domain to my Lovable project?
+**Deploy with Vercel**
+1. Install Vercel CLI: `npm i -g vercel`
+2. Run `vercel` in your project directory
+3. Follow the prompts
 
-Yes, you can!
+**Deploy with Netlify**
+1. Build the project: `npm run build`
+2. Upload the `dist` folder to Netlify
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## About
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+billianceai helps people on the internet with innovative solutions and AI-powered tools.
