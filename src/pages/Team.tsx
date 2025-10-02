@@ -124,7 +124,7 @@ const Team = () => {
       <section className="py-24 bg-background pt-32">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-8">
               <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
                 <span className="bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">
                   Meet Our Team
@@ -133,6 +133,23 @@ const Team = () => {
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                 The brilliant minds behind billianceai's innovative solutions
               </p>
+            </div>
+
+            {/* Figma Design Embed */}
+            <div className="mb-16">
+              <div className="relative w-full rounded-2xl overflow-hidden border border-border/50 bg-muted/20">
+                <div className="aspect-[16/9] w-full">
+                  <iframe
+                    title="Team Figma Design"
+                    className="w-full h-full"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    src="https://www.figma.com/embed?embed_host=astra&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FXkfzeoIyCWBLA6DfVEHHyz%2FUntitled%3Fnode-id%3D0-1%26t%3DVUWrvlv8KOlwEE1C-1"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
             </div>
 
             {/* Adhavan Section */}
