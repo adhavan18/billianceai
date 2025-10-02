@@ -174,25 +174,10 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Hero Visual */}
-        <div className="max-w-2xl mx-auto mt-12">
-          <div className="relative">
-            <div className="absolute inset-0 rounded-2xl" style={{ background: 'var(--gradient-hero)', boxShadow: 'var(--shadow-glow)' }} />
-            <div className="relative aspect-[4/3] rounded-2xl border border-border/30 backdrop-blur-xl bg-card/30 overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <img 
-                  src="/Gemini_Generated_Image_fqjrsifqjrsifqjr.png" 
-                  alt="AI Generated Image"
-                  className="w-full h-full object-cover rounded-2xl"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-32 bg-muted/30">
+      <section id="features" className="py-16 bg-muted/30">
         <div className="container mx-auto px-6">
           <div className="max-w-2xl mx-auto text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
