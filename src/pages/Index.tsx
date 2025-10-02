@@ -55,8 +55,8 @@ const Index = () => {
             <div className="relative aspect-[4/3] rounded-2xl border border-border/30 backdrop-blur-xl bg-card/30 overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-center">
                 <img 
-                  src="/WhatsApp Image 2025-10-01 at 09.00.15_1bec2f54.jpg" 
-                  alt="Presentation showing Real Time Tracking system"
+                  src="/Gemini_Generated_Image_fqjrsifqjrsifqjr.png" 
+                  alt="AI Generated Image"
                   className="w-full h-full object-cover rounded-2xl"
                 />
               </div>
