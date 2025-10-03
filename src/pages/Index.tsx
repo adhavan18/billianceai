@@ -106,7 +106,7 @@ const Index = () => {
             
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-6">
-              <a href="/team" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Team</a>
+              <a href="https://billiance-teams-page.vercel.app/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Team</a>
               <a href="#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
               <a href="#about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Company</a>
             </div>
@@ -125,7 +125,7 @@ const Index = () => {
             <div className="md:hidden mt-4 pb-4 border-t border-border/40">
               <div className="flex flex-col gap-4 pt-4">
                 <a 
-                  href="/team" 
+                  href="https://billiance-teams-page.vercel.app/" 
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >

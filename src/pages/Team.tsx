@@ -68,7 +68,7 @@ const Team = () => {
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-6">
               <a href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Home</a>
-              <a href="/team" className="text-sm text-foreground font-medium">Team</a>
+              <a href="https://billiance-teams-page.vercel.app/" className="text-sm text-foreground font-medium">Team</a>
               <a href="/#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
               <a href="/#about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Company</a>
             </div>
@@ -94,7 +94,7 @@ const Team = () => {
                   Home
                 </a>
                 <a 
-                  href="/team" 
+                  href="https://billiance-teams-page.vercel.app/" 
                   className="text-sm text-foreground font-medium"
                   onClick={() => setMobileMenuOpen(false)}
                 >
