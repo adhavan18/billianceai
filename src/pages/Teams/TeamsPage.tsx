@@ -26,7 +26,7 @@ const teamMembers = [
     role: "Machine Learning",
     quote: "Data is the raw material, but the algorithm is the craft. It's how we shape vast information into precise, predictive intelligence.",
     description:
-      "As a core architect of our intelligence engine, Gouthamarvind designs and implements the sophisticated machine learning models that power our platform. He specializes in developing predictive algorithms for complex retail challenges like demand forecasting and price optimization. His focus is on maximizing model accuracy to deliver state-of-the-art performance and tangible results.",
+      "Gouthamarvind plays a pivotal role in shaping the intelligence behind our platform. He designs and fine-tunes sophisticated machine learning models that solve real-world retail challenges such as demand forecasting, trend prediction, and pricing accuracy. With a focus on precision and performance, his work transforms complex data into actionable insights that drive measurable results.",
     image: "gouthamarvind-photo.png",
   },
   {
@@ -50,7 +50,7 @@ const teamMembers = [
     role: "All-Rounder",
     quote: "A brilliant idea is just the starting point. True innovation happens in the execution—by bridging the gap between the code and the customer.",
     description:
-      "As a versatile link between our technical and strategic teams, Dhriti ensures our operations run with seamless efficiency. Her role encompasses product management, client relations, and strategic planning, guaranteeing our innovative AI solutions are perfectly aligned with our clients' business objectives. Dhriti's agility and holistic oversight are key to transforming great ideas into market-ready products.",
+      "As a dynamic link between our technical and strategic teams, Dhriti ensures that every operation flows with seamless efficiency. Her responsibilities span product management, client coordination, and strategic execution, aligning our AI-driven initiatives with each client’s goals. With agility and precision, she transforms innovative ideas into impactful, market-ready solutions.",
     image: "dhriti-photo.png",
   },
   {
