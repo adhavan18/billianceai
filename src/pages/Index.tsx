@@ -323,7 +323,7 @@ const Index = () => {
               </div>
               <p className="text-muted-foreground mb-6">All essential features</p>
               <Button className="w-full mb-8" style={{ background: 'var(--gradient-metallic)', boxShadow: 'var(--shadow-silver)' }}>
-                Subcribe
+                Subscribe
               </Button>
               <ul className="space-y-3">
                 <li className="flex items-center gap-2">
