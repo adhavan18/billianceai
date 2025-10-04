@@ -1519,7 +1519,7 @@ body {
 
   .header-banner {
     height: auto;
-    margin-top: 0;
+    margin-top: 70px;
     margin-bottom: 0;
   }
 
@@ -1745,7 +1745,15 @@ body {
   }
 
   /* --- BANNERS / IMAGES --- */
-  .header-banner,
+  .header-banner {
+    height: auto;
+    margin-top: 60px;
+    margin-bottom: 16px;
+    width: 100%;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+  }
   .team-photo-bg,
   .team-banner-img,
   .vision-banner-img {
