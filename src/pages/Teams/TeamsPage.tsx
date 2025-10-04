@@ -124,7 +124,7 @@ const Header = () => {
             </p>
           </div>
           <div className="company-right">
-            <button className="cta-button" onClick={() => navigate("/pricing#pricing")}>
+            <button className="cta-button" onClick={() => navigate("/#pricing")}>
               Explore Price <span className="arrow">→</span>
             </button>
           </div>
@@ -155,7 +155,7 @@ const HeroSection = ({ scrollToSection }) => (
             engineers, and data scientists who share a unified passion: leveraging AI to build the
             future of retail.
           </p>
-          <button className="cta-button" onClick={() => scrollToSection("pricing")}>
+          <button className="cta-button" onClick={() => scrollToSection("/teams")}>
             MEET THE TEAM <span className="arrow">→</span>
           </button>
         </div>
