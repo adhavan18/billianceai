@@ -2,6 +2,36 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import logo1 from "@/assets/logo.png";
+
+
+const LogoLink = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleClick = (e) => {
+    e.preventDefault(); // prevent default Link behavior
+    if (location.pathname === "/" || location.pathname === "/index") {
+      // Already on homepage, just scroll
+      const el = document.getElementById("hero");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // Navigate to homepage with hash
+      navigate("/#hero");
+    }
+  };
+
+  return (
+    <a href="/#hero" onClick={handleClick} className="flex items-center gap-2">
+      <img src={logo1} alt="billianceai logo" className="w-8 h-8" />
+      <span className="text-xl font-semibold">billianceai</span>
+    </a>
+  );
+};
 
 const Index = () => {
   const [isAnnually, setIsAnnually] = useState(false);
@@ -99,16 +129,13 @@ const Index = () => {
       <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-background/80 border-b border-border/40">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <img src={logo} alt="billianceai logo" className="w-8 h-8" />
-              <span className="text-xl font-semibold">billianceai</span>
-            </div>
+            <LogoLink />
             
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-6">
-              <a href="https://billiance-teams-page.vercel.app/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Team</a>
-              <a href="#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
-              <a href="#about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Company</a>
+              <a href="/teams" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Team</a>
+              <a href="/#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
+              <a href="/#about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Company</a>
             </div>
 
             {/* Mobile Menu Button */}
@@ -125,7 +152,7 @@ const Index = () => {
             <div className="md:hidden mt-4 pb-4 border-t border-border/40">
               <div className="flex flex-col gap-4 pt-4">
                 <a 
-                  href="https://billiance-teams-page.vercel.app/" 
+                  href="/teams" 
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -152,7 +179,7 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-6 pt-32 pb-20 md:pt-40 md:pb-32">
+      <section id = "hero" className="container mx-auto px-6 pt-32 pb-20 md:pt-40 md:pb-32">
         <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted/50 backdrop-blur-sm border border-border/50 mb-8">
               <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
@@ -168,10 +195,18 @@ const Index = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-            <Button size="lg" className="text-base px-8 h-12 rounded-full font-medium" style={{ background: 'var(--gradient-metallic)', boxShadow: 'var(--shadow-silver)' }}>
-              get slot
+            <Button
+            size="lg"
+            className="text-base px-8 h-12 rounded-full font-medium"
+            style={{ background: 'var(--gradient-metallic)', boxShadow: 'var(--shadow-silver)' }}
+            onClick={() => {
+              window.location.href = "mailto:sk.tamiladhavan@gmail.com?subject=Slot%20Request&body=Hi%20Team,%0A%0AI'd%20like%20to%20book%20a%20slot.";
+            }}
+          >
+            get slot
             </Button>
           </div>
+
         </div>
 
       </section>
@@ -288,7 +323,7 @@ const Index = () => {
               </div>
               <p className="text-muted-foreground mb-6">All essential features</p>
               <Button className="w-full mb-8" style={{ background: 'var(--gradient-metallic)', boxShadow: 'var(--shadow-silver)' }}>
-                Get for Windows
+                Subcribe
               </Button>
               <ul className="space-y-3">
                 <li className="flex items-center gap-2">
@@ -430,7 +465,7 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32">
+      <section id="about" className="py-32">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
@@ -439,9 +474,15 @@ const Index = () => {
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
               Join thousands of teams already using billianceai to create stuff on the internet
             </p>
-            <Button size="lg" className="text-base px-10 h-12 rounded-full font-medium" style={{ background: 'var(--gradient-metallic)', boxShadow: 'var(--shadow-silver)' }}>
-              get slot
-              <ArrowRight className="ml-2 w-4 h-4" />
+            <Button
+            size="lg"
+            className="text-base px-8 h-12 rounded-full font-medium"
+            style={{ background: 'var(--gradient-metallic)', boxShadow: 'var(--shadow-silver)' }}
+            onClick={() => {
+              window.location.href = "mailto:sk.tamiladhavan@gmail.com?subject=Slot%20Request&body=Hi%20Team,%0A%0AI'd%20like%20to%20book%20a%20slot.";
+            }}
+          >
+            get slot
             </Button>
           </div>
         </div>
